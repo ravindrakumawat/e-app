@@ -22,7 +22,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - name: Bundle
+      - name: Create DB & Precompile Assets
         env:
           RAILS_ENV: test
         run: |
