@@ -28,4 +28,4 @@ jobs:
         run: |
           bin/rails db:prepare
       - name: Test
-        run: bundle exec rake
+        run: bundle exec rails test
