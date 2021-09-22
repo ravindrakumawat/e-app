@@ -1,0 +1,7 @@
+<%= content_for :page_header do %>
+  <h2>New Business</h2>
+<% end %>
+<%= render 'form', business: @business %>
+<%= content_for :page_link do %>
+  <%= link_to 'Back', businesses_path %>
+<% end %>

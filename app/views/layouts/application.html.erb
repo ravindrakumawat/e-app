@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <header>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">E-app</a>
+        <%= form_tag(:businesses, method: "get", class: 'd-flex') do %>
+          <%= text_field_tag :search_str,'', class: 'form-control me-2', placeholder: 'Search', value: params[:search_str] %>
+          <%= submit_tag "Search", class: 'btn btn-outline-success' %>
+        <% end %>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col">
+          <% flash.keys.each do |f| %>
+            <%= alertbox("#{alert_class_for(f)} #{f}",flash[f]) %>
+          <% end %>  
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= yield(:page_header) %>
+        </div>  
+      </div>  
+      <div class="row">
+        <% if @business&.persisted? %>
+          <%= render 'layouts/business', business: @business %>
+        <% else %>
+          <div class="col-12">
+            <%= yield %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= yield(:page_link)%>
+        </div>  
+      </div>
+    </div>  
+  </body>
+</html>

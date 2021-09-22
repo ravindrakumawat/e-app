@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <h3>Employee Details</h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @employee.name %></h5>
+    <p class="card-text"><%= @employee.designation %></p>
+    <p class="card-text"><%= @employee.phone_number %></p>
+    <p class="card-text"><%= humanize_date(@employee.joining_date) %></p>
+    <a href="mailto:#"><%= @employee.email %></a>
+  </div>
+</div>

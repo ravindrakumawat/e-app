@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {
+  name: 'city bank',
+  address: 'Government Hostel, Ground Floor Bhagwati Bhawan Crossing, MI Rd, Gopalbari',
+  city: 'Jaipur',
+  state: 'Rajasthan',
+  about: 'Citibank is the consumer division of financial services multinational Citigroup.',
+  contact_email: 'city@gmail.com',
+  post_code: '300101',
+  phone_number: '9995955555'
+}
+# column: value
+#
+two: {}
+# column: value

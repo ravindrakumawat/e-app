@@ -1,0 +1,21 @@
+<div class="col-12">
+  <h2><%= business.name.titleize %>
+    <br>
+    <small class="text-muted"><%= business.founded_date.try(:to_formatted_s, :long) %></small>
+  </h2>
+</div>
+<div class="col-3">
+  <div class="card">
+    <div class="card-header">
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= link_to "Business Summary", business %></li>
+      <li class="list-group-item"><%= link_to "Business Edit", edit_business_path(business) %></li>
+      <li class="list-group-item"><%= link_to 'Employees', business_employees_path(business) %></li>
+      <li class="list-group-item"><%= link_to 'All Businesses', businesses_path %></li>
+    </ul>
+  </div>
+</div>
+<div class="col-9">
+  <%= yield %>
+</div>
