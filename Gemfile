@@ -5,7 +5,7 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'jbuilder', '~> 2.7'
@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
