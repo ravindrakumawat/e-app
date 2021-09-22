@@ -5,13 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby:
-          - '2.5.x'
-          - '2.6.x'
-        rails:
-          - 'rails_v5.1.x'
-          - 'rails_v5.2.x'
-          - 'rails_v6.0.x'
+        ruby-version: ['2.7.2']
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -21,14 +15,12 @@ jobs:
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Bundle
         env:
-          MTSR_RAILS_VERSION: ${{ matrix.rails }}
+          RAILS_ENV: test
         run: |
-          export BUNDLE_GEMFILE="${GITHUB_WORKSPACE}/gemfiles/${MTSR_RAILS_VERSION}.gemfile"
-          gem uninstall -aIx bundler
-          gem install bundler -v 1.17.3
-          bundle install --jobs 4 --retry 3
+          bin/rails db:prepare
       - name: Test
         run: bundle exec rake
