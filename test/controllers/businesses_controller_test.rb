@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BusinessesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @business = businesses(:one)
+    @business = create(:businesse)
   end
 
   test "should get index" do

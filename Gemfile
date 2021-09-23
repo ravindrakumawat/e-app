@@ -16,6 +16,8 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
