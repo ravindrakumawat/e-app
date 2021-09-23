@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-  validates :name, :address, :city, :state, :post_code, :phone_number, :contact_email, presence: true
+  validates :name, presence: true
   validates :name, uniqueness: true
   
   belongs_to :owner, class_name: "Employee", optional: true

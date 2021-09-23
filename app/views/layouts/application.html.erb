@@ -33,7 +33,7 @@
         </div>  
       </div>  
       <div class="row">
-        <% if @business&.persisted? %>
+        <% if @business && @business.persisted? %>
           <%= render 'layouts/business', business: @business %>
         <% else %>
           <div class="col-12">

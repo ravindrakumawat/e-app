@@ -1,14 +1,24 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: %i[ show edit update destroy ]
+  before_action :set_business, only: %i[ edit update destroy ]
 
   def index
-    @businesses = Business.all
-    if search_key = params[:search_str]
-      @businesses = @businesses.where("lower(name) LIKE ?", "%" + search_key.downcase + "%")
-    end  
+    @businesses = if search_key = params[:search_str]
+                    @businesses = BusinessLookup.new.suggest(search_key)
+                  else
+                    Business.all.as_json(only: [:name, :logo, :domain])
+                  end  
   end
 
   def show
+    unless @business = Business.find_by(domain: params[:query])
+      if business_data = BusinessLookup.new.lookup(params[:query])
+        @business = Business.new(business_data)
+        if @business.save
+          return redirect_to @business
+        end
+      end
+      redirect_to businesses_url
+    end
   end
 
   def new

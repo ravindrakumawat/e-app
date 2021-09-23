@@ -1,4 +1,5 @@
 <div class="col-12">
+  <%= image_tag(business["logo"]) %>
   <h2><%= business.name.titleize %>
     <br>
     <small class="text-muted"><%= business.founded_date.try(:to_formatted_s, :long) %></small>
