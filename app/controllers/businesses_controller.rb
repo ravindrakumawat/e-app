@@ -69,6 +69,6 @@ class BusinessesController < ApplicationController
     end
 
     def business_params
-      params.fetch(:business, {}).permit(:name, :about, :address, :city ,:state ,:post_code, :country, :contact_email, :phone_number, :owner_name, :founded_date, :no_of_employees, :owner_id)
+      params.fetch(:business, {}).permit(:name, :about, :address, :city ,:state ,:post_code, :country, :contact_email, :phone_number, :owner_name, :founded_date, :no_of_employees, :owner_id, :country, :company_name, :domain)
     end
 end

@@ -1,11 +1,13 @@
 <%= simple_form_for(business, local: true) do |f| %>
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.input :company_name %>
+    <%= f.input :domain %>
     <%= f.input :address %>
     <%= f.input :city %>
     <%= f.input :state %>
     <%= f.input :post_code %>
-    <%#= f.input :country %>
+    <%= f.input :country, as: :string %>
     <%= f.input :contact_email %>
     <%= f.input :phone_number %>
     <%= f.input :owner_name %>
