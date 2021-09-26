@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_105056) do
+ActiveRecord::Schema.define(version: 2021_09_26_152411) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_09_26_105056) do
     t.string "contact_email"
     t.string "phone_number"
     t.string "owner_name"
-    t.integer "founded_year"
     t.integer "no_of_employees"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_105056) do
     t.string "latitude"
     t.string "longitude"
     t.string "time_zone"
+    t.integer "founded_year"
   end
 
   create_table "contact_infos", force: :cascade do |t|
