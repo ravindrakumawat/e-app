@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_152411) do
     t.string "latitude"
     t.string "longitude"
     t.string "time_zone"
-    t.integer "founded_year"
+    t.string "founded_year"
   end
 
   create_table "contact_infos", force: :cascade do |t|

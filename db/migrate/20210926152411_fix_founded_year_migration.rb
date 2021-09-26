@@ -1,6 +1,5 @@
 class FixFoundedYearMigration < ActiveRecord::Migration[6.0]
   def change
-    remove_column :businesses, :founded_year
-    add_column :businesses, :founded_year, :integer
+    change_column :businesses, :founded_year, :string
   end
 end
