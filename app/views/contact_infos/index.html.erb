@@ -1,0 +1,13 @@
+<table class="table">
+  <tbody>
+    <% @contact_infos.each do |contact_info| %>
+      <tr>
+        <td><%= contact_info.contact_type %></td>
+        <td><%= contact_info.contact %></td>
+        <td><%= link_to "Edit", edit_business_contact_info_path(@business,contact_info) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add Contact Info', new_business_contact_info_path, class: 'btn btn-primary mr-5' %>

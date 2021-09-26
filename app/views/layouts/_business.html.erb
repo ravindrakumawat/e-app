@@ -1,22 +1,33 @@
-<div class="col-12">
-  <%= image_tag(business["logo"]) %>
-  <h2><%= business.name.titleize %>
-    <br>
-    <small class="text-muted"><%= business.founded_date.try(:to_formatted_s, :long) %></small>
-  </h2>
-</div>
 <div class="col-3">
   <div class="card">
     <div class="card-header">
+      <%= image_tag(business["logo"]) %>
+      <h2><%= business.name.titleize %>
+        <br>
+        <small class="text-muted"><%= business.founded_year %></small>
+      </h2>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= link_to "Business Summary", business %></li>
-      <li class="list-group-item"><%= link_to "Business Edit", edit_business_path(business) %></li>
-      <li class="list-group-item"><%= link_to 'Employees', business_employees_path(business) %></li>
       <li class="list-group-item"><%= link_to 'All Businesses', businesses_path %></li>
     </ul>
   </div>
 </div>
 <div class="col-9">
-  <%= yield %>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to "Summary", business, class: tab_active("businesses#show", params, true) %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Business", edit_business_path(business), class: tab_active("businesses#edit", params, true) %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Contacts', business_contact_infos_path(business), class: tab_active("contact_infos#index", params) %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Social Accounts', business_social_accounts_path(business), class: tab_active("social_accounts#index", params) %>
+    </li>
+  </ul>
+  <div class="mt-3">
+    <%= yield %>
+  </div>
 </div>

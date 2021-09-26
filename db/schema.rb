@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_171205) do
+ActiveRecord::Schema.define(version: 2021_09_26_105056) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_171205) do
     t.string "contact_email"
     t.string "phone_number"
     t.string "owner_name"
-    t.date "founded_date"
+    t.integer "founded_year"
     t.integer "no_of_employees"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 2021_09_23_171205) do
     t.string "logo"
     t.string "company_name"
     t.string "external_id"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "time_zone"
+  end
+
+  create_table "contact_infos", force: :cascade do |t|
+    t.integer "business_id"
+    t.string "contact_type"
+    t.string "contact"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -44,6 +55,15 @@ ActiveRecord::Schema.define(version: 2021_09_23_171205) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number"
+  end
+
+  create_table "social_accounts", force: :cascade do |t|
+    t.integer "business_id"
+    t.string "social_network"
+    t.string "handle"
+    t.text "account_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

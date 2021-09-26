@@ -2,21 +2,13 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: %i[ edit update destroy ]
 
   def index
-    @businesses = if search_key = params[:search_str]
-                    @businesses = BusinessLookup.new.suggest(search_key)
-                  else
-                    Business.all.as_json(only: [:name, :logo, :domain])
-                  end  
+    @businesses = Business.search(params[:search_str])
   end
 
   def show
-    unless @business = Business.find_by(domain: params[:query])
-      if business_data = BusinessLookup.new.lookup(params[:query])
-        @business = Business.new(business_data)
-        if @business.save
-          return redirect_to @business
-        end
-      end
+    @business = Business.find_by(id: params[:id])
+    unless @business ||= Business.search_or_create_by_domin(params[:query])
+      flash[:error] = 'Business Not Found'
       redirect_to businesses_url
     end
   end
@@ -69,6 +61,8 @@ class BusinessesController < ApplicationController
     end
 
     def business_params
-      params.fetch(:business, {}).permit(:name, :about, :address, :city ,:state ,:post_code, :country, :contact_email, :phone_number, :owner_name, :founded_date, :no_of_employees, :owner_id, :country, :company_name, :domain)
+      params.fetch(:business, {}).permit(:name, :about, :address, :city ,:state ,:post_code, :country, :contact_email,
+        :phone_number, :owner_name, :founded_date, :no_of_employees, :owner_id, :country, :company_name, :domain,
+        contact_infos_attributes: [:contact_type, :contact], social_accounts_attributes: [:social_network, :handle, :account_details])
     end
 end

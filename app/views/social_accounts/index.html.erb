@@ -1,0 +1,13 @@
+<table class="table">
+  <tbody>
+    <% @social_accounts.each do |social_account| %>
+      <tr>
+        <td><%= social_account.social_network %></td>
+        <td><%= social_account.handle %></td>
+        <td><%= link_to "Edit", edit_business_social_account_path(@business,social_account) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add Social Account', new_business_social_account_path, class: 'btn btn-primary mr-5' %>

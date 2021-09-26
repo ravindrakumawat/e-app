@@ -1,4 +1,14 @@
 module ApplicationHelper
+  def tab_active(action, params, tab = false)
+    if action == "#{params[:controller]}" + "#" + "#{params[:action]}"
+      "nav-link active"
+    elsif action.include?("#{params[:controller]}") && !tab
+      "nav-link active"
+    else
+      "nav-link" 
+    end
+  end
+
   def alert_class_for(flash_type)
     if flash_type == 'success' || flash_type == 'notice'
       'alert-success'

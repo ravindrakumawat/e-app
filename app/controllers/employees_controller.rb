@@ -58,8 +58,4 @@ class EmployeesController < ApplicationController
     def employee_params
       params.fetch(:employee, {}).permit(:first_name, :last_name, :email, :designation, :joining_date)
     end
-
-    def load_business
-      @business = Business.find(params[:business_id])
-    end
 end

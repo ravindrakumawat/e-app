@@ -8,13 +8,14 @@
     <%= f.input :state %>
     <%= f.input :post_code %>
     <%= f.input :country, as: :string %>
-    <%= f.input :contact_email %>
-    <%= f.input :phone_number %>
+    <%#= f.input :contact_email %>
+    <%#= f.input :phone_number %>
     <%= f.input :owner_name %>
     <%= f.input :owner_id, collection: business.employees, label: 'Link Owner Account' if business.persisted? %>
-    <%= f.input :founded_date, as: :date, html5: true %>
+    <%= f.input :founded_year %>
     <%= f.input :no_of_employees %>
     <%= f.input :about %>
+    <%= f.input :time_zone %>
   </div>
   <div class="form-actions">
     <%= f.button :submit %>

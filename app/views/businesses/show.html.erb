@@ -1,25 +1,20 @@
-<div class="card">
-  <div class="card-header">
-    <h3>Summary</h3>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">About</h5>
-    <p class="card-text"><%= @business.about %></p>
-    <div class="col-md-4">
-      <address>
-        <strong></strong><br>
-        <%= @business.address %><br>
-        <%= @business.without_street_address %><br>
-        <abbr title="Phone">P:</abbr> <%= @business.phone_number %>
+<div class="card-body">
+  <h5 class="card-title">About</h5>
+  <p class="card-text"><%= @business.about %></p>
+  <div class="col-md-4">
+    <address>
+      <strong></strong><br>
+      <%= @business.address %><br>
+      <%= @business.without_street_address %><br>
+      <abbr title="Phone">P:</abbr> <%= @business.phone_number %>
 
-      </address>
+    </address>
 
-      <address>
-        <strong><%= @business.name %></strong><br>
-        <a href="mailto:#"><%= @business.contact_email %></a>
-      </address>
-      <strong>Owner:</strong><%= link_to @business.owner_name, @business.owner_id ? [@business, @business.owner] : '#' %>
-      <strong>Employees:</strong><%= @business.no_of_employees %>
-    </div>
+    <address>
+      <strong><%= @business.name %></strong><br>
+      <a href="mailto:#"><%= @business.contact_email %></a>
+    </address>
+    <strong>Owner:</strong><%= link_to @business.owner_name, @business.owner_id ? [@business, @business.owner] : '#' %>
+    <strong>Employees:</strong><%= @business.no_of_employees %>
   </div>
 </div>
