@@ -5,7 +5,7 @@
   <tbody>
     <% @businesses.each do |business| %>
       <tr>
-        <td><%= image_tag(business["logo"]) %></td>
+        <td><%= image_tag(business["logo"]) if business["logo"].present? %></td>
         <td><%= link_to(business["name"], business_path(id: business['name'], query: business['domain']))%></td>
       </tr>
     <% end %>

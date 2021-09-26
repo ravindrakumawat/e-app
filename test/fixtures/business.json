@@ -1,0 +1,156 @@
+{
+  "id": "3067425d-86cb-410a-b8de-8665981162a5",
+  "name": "Facebook",
+  "legalName": "Facebook Inc.",
+  "domain": "facebook.com",
+  "domainAliases": [
+    "facebook.com.co",
+    "facebook.com.eg",
+    "the-little-ice-cream-truck-that-could.com",
+    "facebookmobile.com",
+    "facebookapplicationbuilder.info",
+    "facebookappcenter.net",
+    "freefacebookads.org",
+    "facebookdevelopergarage.com",
+    "freefacebookads.net",
+    "facebookappcenter.org",
+    "facebookappcenter.biz",
+    "mobilefacebook.com",
+    "facebook.com.ai",
+    "facebookpay.com",
+    "fb.ai",
+    "facebookdevelopers.com",
+    "facebook.design",
+    "facebookapplicationbuilder.net",
+    "freefacebookapps.com",
+    "facebookportal.com",
+    "facebook.ai",
+    "portalfb.me",
+    "facebookmobile.mobi",
+    "dacebook.com",
+    "facebook.at",
+    "facebook.yokohama",
+    "faceboob.com",
+    "facebook.site",
+    "facebook.fun",
+    "fbinc.com",
+    "facebook.co.nz",
+    "facebook.surf",
+    "facebook.ge",
+    "facebook.com.ar",
+    "facebbook.com",
+    "facebook.space",
+    "fackebook.com",
+    "facbebook.com",
+    "facebook.com.sv",
+    "faceobook.com",
+    "facebook.us",
+    "facebookdesigns.com",
+    "newsfeed.com",
+    "facebook.rest",
+    "facebook.casa",
+    "facebooth.com",
+    "readr.me",
+    "facebook.website",
+    "fadebook.com",
+    "faceboik.com",
+    "facebook.bo",
+    "facebook.jp",
+    "facebok.de",
+    "facebook.college"
+  ],
+  "site": {
+    "phoneNumbers": [],
+    "emailAddresses": []
+  },
+  "category": {
+    "sector": "Information Technology",
+    "industryGroup": "Software & Services",
+    "industry": "Internet Software & Services",
+    "subIndustry": "Internet",
+    "sicCode": "73",
+    "naicsCode": "51"
+  },
+  "tags": [
+    "Internet",
+    "Technology",
+    "Web Services & Apps",
+    "Mobile",
+    "B2C"
+  ],
+  "description": "Our mission is to give people the power to build community and bring the world closer together.",
+  "foundedYear": 2004,
+  "location": "1 Hacker Way, Menlo Park, CA 94025, USA",
+  "timeZone": "America/Los_Angeles",
+  "utcOffset": -7,
+  "geo": {
+    "streetNumber": "1",
+    "streetName": "Hacker Way",
+    "subPremise": null,
+    "city": "Menlo Park",
+    "postalCode": "94025",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "lat": 37.4843038,
+    "lng": -122.1458147
+  },
+  "logo": "https://logo.clearbit.com/facebook.com",
+  "facebook": {
+    "handle": null,
+    "likes": null
+  },
+  "linkedin": {
+    "handle": "company/facebook"
+  },
+  "twitter": {
+    "handle": "Facebook",
+    "id": "2425151",
+    "bio": "Our mission is to give people the power to build community and bring the world closer together.",
+    "followers": 13146127,
+    "following": 722,
+    "location": "Menlo Park, California",
+    "site": "https://t.co/LBh7RnpObD",
+    "avatar": "https://pbs.twimg.com/profile_images/1390701864509841411/OyrF3BlK_normal.jpg"
+  },
+  "crunchbase": {
+    "handle": "organization/facebook"
+  },
+  "emailProvider": true,
+  "type": "private",
+  "ticker": null,
+  "identifiers": {
+    "usEIN": "201665019"
+  },
+  "phone": "+1 650-618-7714",
+  "metrics": {
+    "alexaUsRank": 5,
+    "alexaGlobalRank": 7,
+    "employees": 94520,
+    "employeesRange": "50K-100K",
+    "marketCap": 527169999999,
+    "raised": null,
+    "annualRevenue": null,
+    "estimatedAnnualRevenue": "$10B+",
+    "fiscalYearEnd": 12
+  },
+  "indexedAt": "2021-09-25T01:32:23.105Z",
+  "tech": [
+    "double_click",
+    "facebook_connect",
+    "facebook_advertiser",
+    "facebook_social_plugins"
+  ],
+  "techCategories": [
+    "advertising",
+    "authentication_services",
+    "social_sharing"
+  ],
+  "parent": {
+    "domain": null
+  },
+  "ultimateParent": {
+    "domain": null
+  }
+}

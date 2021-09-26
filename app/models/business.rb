@@ -8,11 +8,11 @@ class Business < ApplicationRecord
   has_many :contact_infos, dependent: :destroy
 
   accepts_nested_attributes_for :employees
-  accepts_nested_attributes_for :social_accounts
-  accepts_nested_attributes_for :contact_infos
+  accepts_nested_attributes_for :social_accounts, reject_if: proc { |attributes| attributes['social_network'].blank? }
+  accepts_nested_attributes_for :contact_infos, reject_if: proc { |attributes| attributes['contact_type'].blank? || attributes['contact'].blank? }
 
   def self.search(query = nil)
-    if query
+    if query.present?
       BusinessSearch.new.find_by_query(query)
     else
       all.as_json(only: [:name, :logo, :domain])

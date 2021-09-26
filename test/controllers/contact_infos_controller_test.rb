@@ -1,48 +1,55 @@
 require 'test_helper'
 
 class ContactInfosControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @contact_info = contact_infos(:one)
+  def setup
+    @business = create(:business)
+    @contact_info = create(:contact_info, contact_type: 'phone', contact: '+1 650-618-7714', business: @business)
   end
 
-  test "should get index" do
-    get contact_infos_url
+  def test_index
+    get business_contact_infos_url(@business)
     assert_response :success
   end
 
-  test "should get new" do
-    get new_contact_info_url
+  def test_new
+    get new_business_contact_info_url(@business)
     assert_response :success
   end
 
-  test "should create contact_info" do
+  def test_create
     assert_difference('ContactInfo.count') do
-      post contact_infos_url, params: { contact_info: {  } }
+      post business_contact_infos_url(@business), params: { contact_info: { contact_type: 'phone', contact: '+1 650-618-7715' } }
     end
 
-    assert_redirected_to contact_info_url(ContactInfo.last)
+    assert_redirected_to business_contact_infos_url(@business)
   end
 
-  test "should show contact_info" do
-    get contact_info_url(@contact_info)
+  def test_create_failure
+    assert_no_difference('ContactInfo.count') do
+      post business_contact_infos_url(@business), params: { contact_info: { contact_type: '', contact: '+1 650-618-7715' } }
+    end
+    assert_response :unprocessable_entity
+  end
+
+  def test_edit
+    get edit_business_contact_info_url(@business,@contact_info)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_contact_info_url(@contact_info)
-    assert_response :success
+  def test_update
+    patch business_contact_info_url(@business,@contact_info), params: { contact_info: { contact: '+1 650-618-7717' } }
+    assert_redirected_to business_contact_infos_url(@business)
   end
 
-  test "should update contact_info" do
-    patch contact_info_url(@contact_info), params: { contact_info: {  } }
-    assert_redirected_to contact_info_url(@contact_info)
+  def test_update_failure
+    patch business_contact_info_url(@business,@contact_info), params: { contact_info: { contact: '' } }
+    assert_response :unprocessable_entity
   end
 
-  test "should destroy contact_info" do
+  def test_destroy
     assert_difference('ContactInfo.count', -1) do
-      delete contact_info_url(@contact_info)
+      delete business_contact_info_url(@business, @contact_info)
     end
-
-    assert_redirected_to contact_infos_url
+    assert_redirected_to business_contact_infos_url(@business)
   end
 end

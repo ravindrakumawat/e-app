@@ -6,8 +6,8 @@ class BusinessesController < ApplicationController
   end
 
   def show
-    @business = Business.find_by(id: params[:id])
-    unless @business ||= Business.search_or_create_by_domin(params[:query])
+    @business = Business.find_by(id: params[:id]) || Business.search_or_create_by_domin(params[:query])
+    unless @business
       flash[:error] = 'Business Not Found'
       redirect_to businesses_url
     end

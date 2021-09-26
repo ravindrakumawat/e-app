@@ -10,18 +10,18 @@ class SocialAccountsController < ApplicationController
   end
 
   def new
-    @social_account = @business.social_accounts.new
+    @social_account = @business.social_accounts.build
   end
 
   def edit
   end
 
   def create
-    @social_account = @business.social_accounts.new(social_account_params)
+    @social_account = @business.social_accounts.build(social_account_params)
 
     respond_to do |format|
       if @social_account.save
-        format.html { redirect_to @social_account, notice: "Contact info was successfully created." }
+        format.html { redirect_to business_social_accounts_url, notice: "Social Account was successfully created." }
         format.json { render :show, status: :created, location: @social_account }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -33,7 +33,7 @@ class SocialAccountsController < ApplicationController
   def update
     respond_to do |format|
       if @social_account.update(social_account_params)
-        format.html { redirect_to @social_account, notice: "Contact info was successfully updated." }
+        format.html { redirect_to business_social_accounts_url, notice: "Social Account was successfully updated." }
         format.json { render :show, status: :ok, location: @social_account }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class SocialAccountsController < ApplicationController
   def destroy
     @social_account.destroy
     respond_to do |format|
-      format.html { redirect_to social_accounts_url, notice: "Contact info was successfully destroyed." }
+      format.html { redirect_to business_social_accounts_url, notice: "Social Account was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -56,6 +56,6 @@ class SocialAccountsController < ApplicationController
     end
 
     def social_account_params
-      params.fetch(:social_account, {}).permit(:contact_type, :contact)
+      params.fetch(:social_account, {}).permit(:social_network, :handle)
     end
 end

@@ -5,6 +5,7 @@
         <td><%= contact_info.contact_type %></td>
         <td><%= contact_info.contact %></td>
         <td><%= link_to "Edit", edit_business_contact_info_path(@business,contact_info) %></td>
+        <td><%= link_to 'Destroy', business_contact_info_path(@business,contact_info), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
