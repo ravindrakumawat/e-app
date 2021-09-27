@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rails-server:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    build: .
+    image: eapp:1.0
+    environment:
+      INSTANCE_TYPE: server
+      PORT: 3000
+    ports:
+      - 3000:3000
+      - 80:3000
+      - 443:3000
