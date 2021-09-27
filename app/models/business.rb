@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-  validates :name, :domin, presence: true
+  validates :name, :domain, presence: true
   validates :name, uniqueness: true
   
   belongs_to :owner, class_name: "Employee", optional: true
