@@ -12,11 +12,7 @@ class Business < ApplicationRecord
   accepts_nested_attributes_for :contact_infos, reject_if: proc { |attributes| attributes['contact_type'].blank? || attributes['contact'].blank? }
 
   def self.search(query = nil)
-    if query.present?
-      BusinessSearch.new.find_by_query(query)
-    else
-      all.as_json(only: [:name, :logo, :domain])
-    end
+    BusinessSearch.new.find_by_query(query) if query.present?
   end
 
   def self.search_or_create_by_domin(domain_str)

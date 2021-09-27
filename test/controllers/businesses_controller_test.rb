@@ -11,8 +11,6 @@ class BusinessesControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_index_with_search
-    # stub_request(:get, BusinessSearch::SEGMENT_URL+"/segment?quesry=google").
-    #   to_return(status: 200, body: File.read("test/fixtures/test.png"), headers: {"Content-Type" => 'image/png'})
     stub_request(:get, "https://autocomplete.clearbit.com/v1/companies/suggest?query=google").
       with(
         headers: {

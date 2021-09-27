@@ -3,6 +3,7 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = Business.search(params[:search_str])
+    @businesses ||= Business.all.as_json(only: [:name, :logo, :domain])
   end
 
   def show
